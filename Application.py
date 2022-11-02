@@ -46,7 +46,7 @@ if uploaded_file is not None:
             color_map.append('cyan')
         elif node in partition[9]:
             color_map.append('grey')
-       else:
+        else:
             color_map.append('yellow')
 
     
