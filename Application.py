@@ -8,15 +8,15 @@ import networkx.algorithms.community as nx_comm
 #from community import community_louvain
 
 st.title('Optimal traffic routes prediction for shuttle service')
-st.markdown('Karate Club Graph')
+st.markdown('Routes Graph')
 
-uploaded_file = st.file_uploader(" ", type=['csv']) #Only accepts csv file format
+uploaded_file = st.file_uploader(" ", type=['xlsx']) #Only accepts csv file format
 
 if uploaded_file is not None:     
-    data = pd.read_csv(uploaded_file)
+    data = pd.read_excel(uploaded_file)
     data
     g = nx.karate_club_graph()
-    g = nx.from_pandas_edgelist(data, source = "road", target = "Destination") #Use the Graph API to create an empty network graph object
+    g = nx.from_pandas_edgelist(data, source = "Origin", target = "Destination") #Use the Graph API to create an empty network graph object
 
     partition = nx_comm.louvain_communities(g)
 
@@ -32,6 +32,10 @@ if uploaded_file is not None:
             color_map.append('green')
         elif node in partition[2]:
             color_map.append('blue')
+        elif node in partition[3]:
+            color_map.append('orange')
+        elif node in partition[4]:
+            color_map.append('purple')            
         else:
             color_map.append('yellow')
 
