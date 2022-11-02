@@ -39,13 +39,13 @@ if uploaded_file is not None:
         if node in partition[5]:
             color_map.append('black')
         elif node in partition[6]:
-            color_map.append('grey')
+            color_map.append('yellow')
         elif node in partition[7]:
             color_map.append('pink')
         elif node in partition[3]:
             color_map.append('cyan')
         elif node in partition[4]:
-            color_map.append('magneta')
+            color_map.append('grey')
 
 
 
