@@ -10,10 +10,10 @@ import networkx.algorithms.community as nx_comm
 st.title('Optimal traffic routes prediction for shuttle service')
 st.markdown('Routes Graph')
 
-uploaded_file = st.file_uploader(" ", type=['xlsx']) #Only accepts csv file format
+uploaded_file = st.file_uploader(" ", type=['csv']) #Only accepts csv file format
 
 if uploaded_file is not None:     
-    data = pd.read_excel(uploaded_file)
+    data = pd.read_csv(uploaded_file)
     data
     g = nx.karate_club_graph()
     g = nx.from_pandas_edgelist(data, source = "Origin", target = "Destination") #Use the Graph API to create an empty network graph object
