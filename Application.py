@@ -7,7 +7,7 @@ import numpy as np
 import networkx.algorithms.community as nx_comm
 #from community import community_louvain
 
-st.title('Optimal traffic routes prediction for shuttle service')
+st.title('Optimal Route Prediction for Shuttle Service')
 st.markdown('Routes Graph')
 
 uploaded_file = st.file_uploader(" ", type=['csv']) #Only accepts csv file format
@@ -36,6 +36,19 @@ if uploaded_file is not None:
             color_map.append('orange')
         elif node in partition[4]:
             color_map.append('purple')            
+        if node in partition[5]:
+            color_map.append('black')
+        elif node in partition[6]:
+            color_map.append('grey')
+        elif node in partition[7]:
+            color_map.append('pink')
+        elif node in partition[3]:
+            color_map.append('cyan')
+        elif node in partition[4]:
+            color_map.append('magneta')
+
+
+
         else:
             color_map.append('yellow')
 
@@ -70,6 +83,6 @@ if uploaded_file is not None:
         edge_BC = nx.edge_betweenness_centrality(g)
         st.info(sorted(edge_BC.items(), key=lambda edge_BC : (edge_BC[1], edge_BC[0]), reverse = True))
     
-    st.subheader("Thanks for visit.")
+    st.subheader("Thanks for visiting.")
 
     st.balloons()
