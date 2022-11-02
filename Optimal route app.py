@@ -1,6 +1,6 @@
 #pip install python-louvain
 
-from tkinter import font
+#from tkinter import font
 import streamlit as st
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ import community as community_louvin
 st.title('Optimal traffic routes prediction for shuttle service')
 st.markdown('Optimal Route Graph')
 
-uploaded_file = st.file_uploader("D:\Data Science 360digitmg\Live Project\Data sets\Final data.xlsx ", type=['xlsx']) #Only accepts excel file format
+uploaded_file = st.file_uploader(" ", type=['xlsx']) #Only accepts excel file format
 
 if uploaded_file is not None:     
     G = pd.read_excel(uploaded_file)
@@ -23,7 +23,7 @@ if uploaded_file is not None:
     g = nx.Graph()
     
 
-    g = nx.from_pandas_edgelist(G, source = 'Origin_code', target = 'Dest_code', edge_attr=['AvgDurationm','Distance'])
+    g = nx.from_pandas_edgelist(G, source = 'Origin', target = 'Destination', edge_attr=['Avg. Duration(minutes)','Distance(meters)'])
 
     partition = nx_comm.louvain_communities(g)
 
