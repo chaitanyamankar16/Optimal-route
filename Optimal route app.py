@@ -1,4 +1,4 @@
-pip install python-louvain
+#pip install python-louvain
 
 from tkinter import font
 import streamlit as st
